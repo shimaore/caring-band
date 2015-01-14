@@ -48,7 +48,7 @@ A new item is submitted either:
           text.push """
             "#{k}": #{v.toDecimal decimals}
           """
-        "{#{text.join ','}}"
+        "{#{text.join ', '}}"
 
 Storage Object
 ==============
