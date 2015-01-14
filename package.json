@@ -2,6 +2,7 @@
   "name": "caring-band",
   "description": "Realtime Streaming Statistics",
   "scripts": {
+    "prepublish": "coffee -c -p README.coffee.md > index.js",
     "test": "mocha"
   },
   "version": "1.0.0",
@@ -10,5 +11,13 @@
     "test": "test"
   },
   "author": "Stéphane Alnet <stephane@shimaore.net> (http://stephane.shimaore.net/)",
-  "license": "Unlicense (http://unlicense.org/)"
+  "license": "Unlicense (http://unlicense.org/)",
+  "dependencies": {
+    "big-rational": "^0.9.8"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "chai-as-promised": "^4.1.1",
+    "mocha": "^2.1.0"
+  }
 }
