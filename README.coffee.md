@@ -15,6 +15,10 @@ Each statistical object stored offers the following fields:
 - `sum`, the numerical sum of all items submitted
 - `sumsqr`, the sum of squares of each item submitted
 
+A new item is submitted either:
+- by using `add(number)`;
+- by using `add()`, in which case the number is assumed to be 0 (and only `count` is meaningful).
+
     class CaringBandData
       constructor: ->
         @count = new bigRat 0
@@ -25,6 +29,7 @@ Each statistical object stored offers the following fields:
         @sumsqr = new bigRat 0
 
       add: (number) ->
+        number ?= 0
         number = new bigRat number
         @last = number
         @count = @count.add 1
@@ -35,6 +40,7 @@ Each statistical object stored offers the following fields:
 
         @sum = @sum.add number
         @sumsqr = @sumsqr.add number.times number
+        this
 
       toJSON: (decimals) ->
         text = []
@@ -48,7 +54,8 @@ Storage Object
 ==============
 
 The module exports a storage object which allows you to:
-- `add(key,item)`: add a new numerical item to a key's statistical object
+- `add(key,item)`: add a new numerical item to a key's statistical object; returns the new statistical object;
+- `add(key)`: count a new entry; the value is assumed to be zero; returns the new statistical object;
 - `get(key)`: retrieve the statistical object defined above;
 - `delete(key)`: delete the statisitcal object for the key.
 
