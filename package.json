@@ -1,0 +1,14 @@
+{
+  "name": "caring-band",
+  "description": "Realtime Streaming Statistics",
+  "scripts": {
+    "test": "mocha"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": "Stéphane Alnet <stephane@shimaore.net> (http://stephane.shimaore.net/)",
+  "license": "Unlicense (http://unlicense.org/)"
+}
