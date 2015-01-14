@@ -3,7 +3,7 @@ Statistical Object
 
 Allows to easily store: count, min, max, last, sum, sum-of-squares.
 This is inspired by CouchDB's [`_stats`](https://wiki.apache.org/couchdb/Built-In_Reduce_Functions#A_stats) built-in reduce function.
-Results are stored as big-rational numbers.
+Results are stored as [big-rational](https://github.com/peterolson/BigRational.js) numbers.
 
     bigRat = require 'big-rational'
 
