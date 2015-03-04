@@ -95,5 +95,12 @@ It will emit `delete` when a value is deleted.
 
         @emit 'delete', {key}
 
+      toJSON: (precision) ->
+        hash = []
+        for own key,value of @data
+          do (key,value) ->
+            hash.push (JSON.stringify key) + ':' + value.toJSON precision
+        '{' + (hash.join ',') + '}'
+
     module.exports = CaringBand
     module.exports.data = CaringBandData

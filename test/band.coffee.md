@@ -84,6 +84,21 @@
         c = b.get 'hello'
         c.should.have.property 'last'
         chai.expect( c.last.equals 0.2 ).to.be.true
+
+      it 'should JSON properly', ->
+
+Semantic testing
+
+        c = JSON.parse b.toJSON 7
+        c.should.have.property 'hello'
+        c.hello.should.have.property 'sum', 10.2
+        c.should.have.property '["hello"]'
+        c['["hello"]'].should.have.property 'sumsqr', 34.81
+
+Litteral value testing
+
+        (b.toJSON 7).should.eq '{"[\\"hello\\"]":{"count": 3, "min": 0.9, "max": 5, "last": 0.9, "sum": 8.9, "sumsqr": 34.81},"hello":{"count": 4, "min": -1, "max": 7, "last": 0.2, "sum": 10.2, "sumsqr": 66.04}}'
+
       it 'should report deletions', (done) ->
         b.on 'delete', (data) ->
           data.should.have.property 'key', 'hello'
