@@ -12,7 +12,18 @@
       b.add 'hello', 4
       b.add 'hello', -1
       b.add 'hello', 7
-      b.add 'hello', 0.2
+
+      it 'should report additions', (done) ->
+        b.on 'add', (data) ->
+          data.should.have.property 'key', 'hello'
+          data.should.have.property 'number'
+          data.number.should.have.property 'numerator'
+          data.number.should.have.property 'denominator'
+          chai.expect( data.number.numerator.equals 1 ).to.be.true
+          chai.expect( data.number.denominator.equals 5 ).to.be.true
+          done()
+
+        b.add 'hello', 0.2
 
       it 'should count properly', ->
         c = b.get ['hello']
@@ -73,3 +84,8 @@
         c = b.get 'hello'
         c.should.have.property 'last'
         chai.expect( c.last.equals 0.2 ).to.be.true
+      it 'should report deletions', (done) ->
+        b.on 'delete', (data) ->
+          data.should.have.property 'key', 'hello'
+          done()
+        b.delete 'hello'

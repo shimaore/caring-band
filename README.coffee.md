@@ -59,9 +59,13 @@ The module exports a storage object which allows you to:
 - `get(key)`: retrieve the statistical object defined above;
 - `delete(key)`: delete the statisitcal object for the key.
 
-Keys might be any JSON-compatible types.
+Keys might be any JSON-compatible types. Non-string keys are converted to strings using `JSON.stringify`.
 
-    class CaringBand
+The storage object is also an EventEmitter.
+
+    {EventEmitter} = require 'events'
+
+    class CaringBand extends EventEmitter
 
       constructor: ->
         @data = {}
@@ -71,7 +75,11 @@ Keys might be any JSON-compatible types.
           key = JSON.stringify key
 
         @data[key] ?= new CaringBandData()
-        @data[key].add number
+        value = @data[key].add number
+
+It will emit `add` when a value is updated.
+
+        @emit 'add', {key,number:value.last}
 
       get: (key) ->
         if typeof key isnt 'string'
@@ -82,6 +90,10 @@ Keys might be any JSON-compatible types.
         if typeof key isnt 'string'
           key = JSON.stringify key
         delete @data[key]
+
+It will emit `delete` when a value is deleted.
+
+        @emit 'delete', {key}
 
     module.exports = CaringBand
     module.exports.data = CaringBandData
