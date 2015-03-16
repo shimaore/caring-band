@@ -79,7 +79,7 @@ The storage object is also an EventEmitter.
 
 It will emit `add` when a value is updated.
 
-        @emit 'add', {key,number:value.last}
+        @emit 'add', {key,number:value.last,value}
 
       get: (key) ->
         if typeof key isnt 'string'

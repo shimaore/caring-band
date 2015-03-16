@@ -21,6 +21,9 @@
           data.number.should.have.property 'denominator'
           chai.expect( data.number.numerator.equals 1 ).to.be.true
           chai.expect( data.number.denominator.equals 5 ).to.be.true
+          data.should.have.property 'value'
+          data.value.should.have.property 'count'
+          data.value.should.have.property 'sumsqr'
           done()
 
         b.add 'hello', 0.2
