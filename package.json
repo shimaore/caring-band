@@ -13,7 +13,7 @@
   "author": "Stéphane Alnet <stephane@shimaore.net> (http://stephane.shimaore.net/)",
   "license": "Unlicense (http://unlicense.org/)",
   "dependencies": {
-    "big-rational": "^0.9.8"
+    "big-rational": "0.9.8"
   },
   "devDependencies": {
     "chai": "^1.10.0",
