@@ -13,13 +13,13 @@
   "author": "Stéphane Alnet <stephane@shimaore.net> (http://stephane.shimaore.net/)",
   "license": "Unlicense (http://unlicense.org/)",
   "dependencies": {
-    "big-rational": "^0.10.0"
+    "big-rational": "^0.10.5"
   },
   "devDependencies": {
-    "chai": "^3.4.1",
-    "chai-as-promised": "^5.1.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.2.0",
     "coffee-script": "^1.10.0",
-    "mocha": "^2.3.3"
+    "mocha": "^2.4.5"
   },
   "keywords": [
     "statistics",
